@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Печатающийся текст</title>
+    <style>
+        body {
+            background: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        #output {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 600px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="output"></div>
+
+    <script>
+        const text = `часик в радость👀
+чефир в сладость😈
+ногам ходу😼
+голове приходу🙃
+матушку удачу🥹
+100 тузов по сдаче🌟
+ходу воровскому 🧛
+смерти мусорскому 🌟
+работаем по воровскому закону - по уголовному не работаем😈`;
+
+        const delay = 50; // задержка в миллисекундах между буквами
+        const output = document.getElementById('output');
+        let index = 0;
+
+        function printLetter() {
+            if (index < text.length) {
+                output.innerHTML += text[index];
+                index++;
+                setTimeout(printLetter, delay);
+            }
+        }
+
+        printLetter();
+    </script>
+</body>
+
+</html>
